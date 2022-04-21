@@ -24,7 +24,7 @@ layout: default
     <div class="post-list">
       {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
       {%- for post in posts -%}
-      <article>
+      <article class="post-entry">
         <h3>
           <a class="post-link" href="{{ post.url | relative_url }}">
             {{ post.title | escape }}
@@ -59,3 +59,14 @@ layout: default
   {%- endif -%}
 
 </div>
+
+<style>
+  .post-entry{
+    position: relative;
+    margin-bottom: 1em;
+    padding: 1em;
+    background: #e1cbf0;
+    border-radius: 1em;
+    border: 1px solid #50295f
+  }
+</style>
