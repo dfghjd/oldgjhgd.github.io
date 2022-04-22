@@ -24,7 +24,7 @@ $table-header-bg-color: lighten($brand-color, 43%) !default;
 $table-header-border:   lighten($brand-color, 37%) !default;
 $table-border-color:    $border-color-01 !default;
 
-.dark{ /*copied from dark.scss*/
+.dark { /*copied from dark.scss*/
   $brand-color:           #999999 !default;
   $brand-color-light:     lighten($brand-color, 5%) !default;
   $brand-color-dark:      darken($brand-color, 35%) !default;
