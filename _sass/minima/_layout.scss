@@ -91,6 +91,8 @@
   @media screen and (min-width: $on-medium) {
     /*position: static;
     float: right;*/
+    display: flex;
+  
     border: none;
     background-color: inherit;
 
