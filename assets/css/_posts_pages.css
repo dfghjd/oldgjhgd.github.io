@@ -17,10 +17,7 @@
      color: #303030;
      text-align: center;
    }
-   .page-title,
-   .page-title a {
-   }
-   
+     
    /* Meta data line below post title */
    .post-date {
      display: inline-block;

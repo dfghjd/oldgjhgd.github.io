@@ -28,7 +28,7 @@
  */
 
  :root {
-     page-bg: white;
+    --page-bg: white;
     --titles-font: 'Poppins', sans-serif;
   
     --text-font: 'Rubik', sans-serif;
