@@ -58,3 +58,12 @@ theme: minima
 plugins:
  - jekyll-feed
  - jekyll-seo-tag
+
+navs:
+  -
+    href: /
+    label: Inicio
+
+  -
+    href: /about/
+    label: about
