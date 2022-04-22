@@ -1,0 +1,417 @@
+/*
+ *  ___
+ * /\_ \
+ * \//\ \      __      ___   __  __    ___     ___
+ *   \ \ \   /'__`\  /' _ `\/\ \/\ \  / __`\ /' _ `\
+ *    \_\ \_/\ \_\.\_/\ \/\ \ \ \_\ \/\ \_\ \/\ \/\ \
+ *    /\____\ \__/.\_\ \_\ \_\/`____ \ \____/\ \_\ \_\
+ *    \/____/\/__/\/_/\/_/\/_/`/___/> \/___/  \/_/\/_/
+ *                               /\___/
+ *                               \/__/
+ *
+ * Designed, built, and released under MIT license by @mdo. Learn more at
+ * https://github.com/poole/lanyon.
+ */
+
+
+/*
+ * Contents
+ *
+ * Global resets
+ * Masthead
+ * Sidebar
+ * Slide effect
+ * Posts and pages
+ * Pagination
+ * Reverse layout
+ * Themes
+ */
+
+ :root {
+     page-bg: white;
+    --titles-font: 'Poppins', sans-serif;
+  
+    --text-font: 'Rubik', sans-serif;
+    --yellow: #e8ff19;
+    --yellow-dark: #ebcc07;
+  
+    --masthead-normaltext-color: #fefefe;
+    --masthead-a-color: #fefefe90;
+    --masthead-smalltext-color: white;
+  
+    --titles-color: #313131;
+    --text-color: #515151;
+    --strong-text-color: #303030;
+    --link-color: #268bd2;
+    --quote-text-color: #7a7a7a;
+    --inline-code-bgcolor: #f9f9f950;
+    --block-code-bgcolor: #f9f9f9;
+  
+  
+    --rectangle: polygon(0 0, 100% 0%, 100% 100%, 0% 100%);
+    --norectangle: polygon(0 0, 0 0, 0 100%, 0% 100%);
+}
+
+.dark{
+    --page-bg: black;
+
+}
+  
+  /* ::::
+   * Global/Body resets
+   *
+   * Update the foundational and global aspects of the page.
+   */
+  
+  * {
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+  }
+  
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Prevent scroll on narrow devices */
+  html,
+  body {
+    overflow-x: hidden;
+  }
+  
+  html {
+    font-family: var(--text-font);
+    font-size: 16px; /*now 16px=1rem*/
+    line-height: 1.5;
+  }
+  
+  @media (min-width: 38rem) {
+    html {
+      font-size: 20px; /*when screens width is > 608px(38x16)*/
+    }
+  }
+  
+  body { 
+    color: var(--text-color);
+    background-color: var(--page-bg);
+    -webkit-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
+  }
+  
+  /* No `:visited` state is required by default (browsers will use `a`) */
+  a {
+    color: var(--link-color);
+    text-decoration: none;
+  }
+  /* `:focus` is linked to `:hover` for basic accessibility */
+  a:hover,
+  a:focus {
+    text-decoration: underline;
+  }
+  
+  p>a {
+    text-decoration: underline;
+  }
+  /* Headings */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--titles-font);
+    font-weight: 400;
+    line-height: 1.25;
+    margin-bottom: .5rem;
+    color: var(--titles-color);
+    letter-spacing: -.025rem;
+    text-rendering: optimizeLegibility;
+  }
+  
+  h1 {
+    font-size: 3rem;
+  }
+  h2 {
+    margin-top: 1rem;
+    font-size: 1.5rem;
+  }
+  h3 {
+    margin-top: 1.5rem;
+    font-size: 1.25rem;
+  }
+  h4, h5, h6 {
+    margin-top: 1rem;
+    font-size: 1rem;
+  }
+  
+  /* Body text */
+  p {
+    margin-top: 0;
+    margin-bottom: 1rem;
+  }
+  
+  strong {
+    color: var(--strong-text-color);
+  }
+  
+  /* Lists */
+  ul, ol, dl {
+    margin-top: 0;
+    margin-bottom: 1rem;
+  }
+  
+  dt {
+    font-weight: bold;
+  }
+  dd {
+    margin-bottom: .5rem;
+  }
+  
+  /* Misc */
+  hr {
+    position: relative;
+    margin: 1.5rem 0;
+    border: 0;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #fff;
+  }
+  
+  abbr {
+    font-size: 85%;
+    font-weight: bold;
+    color: #555;
+    text-transform: uppercase;
+  }
+  abbr[title] {
+    cursor: help;
+    border-bottom: 1px dotted #e5e5e5;
+  }
+  
+  /* Code */
+  code,
+  pre {
+    font-family: "Roboto Mono", monospace;
+    font-weight: 400;
+  }
+  code {
+    padding: .25em .5em;
+    font-size: 85%;
+    color: #de597c;
+    background-color: var(--inline-code-bgcolor);
+    border-radius: 3px;
+  }
+  
+  pre {
+    display: block;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    font-size: .8rem;
+    line-height: 1.4;
+    white-space: pre;
+    /*white-space: pre-wrap;*/
+    word-break: break-all;
+    word-wrap: break-word;
+    background-color: var(--block-code-bgcolor);
+    overflow-x: auto; /*:D*/
+  }
+  pre code {
+    padding: 0;
+    font-size: 100%;
+    color: inherit;
+    background-color: transparent;
+  }
+  .highlight {
+    margin-bottom: 1rem;
+    border-radius: 4px;
+  }
+  .highlight pre {
+    margin-bottom: 0;
+  }
+  
+  /* Quotes */
+  blockquote {
+    padding: .5rem 1rem;
+    margin: .8rem 0;
+    color: var(--quote-text-color);
+    border-left: .25rem solid #e5e5e5;
+  }
+  blockquote p:last-child {
+    margin-bottom: 0;
+  }
+  @media (min-width: 30rem) {
+    blockquote {
+      padding-right: 5rem;
+      padding-left: 1.25rem;
+    }
+  }
+  
+  img {
+    display: block;
+    margin: 0 0 1rem;
+    border-radius: 5px;
+    max-width: 100%; /* 70vw seemed about right*/
+  }
+  
+  /* Tables */
+  table {
+    margin-bottom: 1rem;
+    width: 100%;
+    border: 1px solid #e5e5e5;
+    border-collapse: collapse;
+  }
+  td,
+  th {
+    padding: .25rem .5rem;
+    border: 1px solid #e5e5e5;
+  }
+  tbody tr:nth-child(odd) td,
+  tbody tr:nth-child(odd) th {
+    background-color: #f9f9f9;
+  }
+  
+  .wrapper {
+    max-width: 100%;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+@media (min-width: 800px){
+.wrapper {
+    max-width: calc(800px - (30px * 2));
+    padding-right: 30px;
+    padding-left: 30px;
+}
+  
+  
+  
+  
+  
+  
+  /*
+   * Reverse layout
+   *
+   * Flip the orientation of the page by placing the `.sidebar` and sidebar toggle
+   * on the right side.
+   */
+  
+  .layout-reverse .sidebar {
+    left: auto;
+    right: -14rem;
+  }
+  .layout-reverse .sidebar-toggle {
+    left: auto;
+    right: 1rem;
+  }
+  
+  .layout-reverse #sidebar-checkbox:checked ~ .sidebar,
+  .layout-reverse #sidebar-checkbox:checked ~ .wrap,
+  .layout-reverse #sidebar-checkbox:checked ~ .sidebar-toggle {
+    -webkit-transform: translateX(-14rem);
+        -ms-transform: translateX(-14rem);
+            transform: translateX(-14rem);
+  }
+  
+  
+  /*
+   * Themes
+   *
+   * Apply custom color schemes by adding the appropriate class to the `body`.
+   * Based on colors from Base16: http://chriskempson.github.io/base16/#default.
+   */
+  
+  /* Red */
+  .theme-base-08 .sidebar,
+  .theme-base-08 .sidebar-toggle:active,
+  .theme-base-08 #sidebar-checkbox:checked ~ .sidebar-toggle {
+    background-color: #ac4142;
+  }
+  .theme-base-08 .container a,
+  .theme-base-08 .sidebar-toggle,
+  .theme-base-08 .related-posts li a:hover {
+    color: #ac4142;
+  }
+  
+  /* Orange */
+  .theme-base-09 .sidebar,
+  .theme-base-09 .sidebar-toggle:active,
+  .theme-base-09 #sidebar-checkbox:checked ~ .sidebar-toggle {
+    background-color: #d28445;
+  }
+  .theme-base-09 .container a,
+  .theme-base-09 .sidebar-toggle,
+  .theme-base-09 .related-posts li a:hover {
+    color: #d28445;
+  }
+  
+  /* Yellow */
+  .theme-base-0a .sidebar,
+  .theme-base-0a .sidebar-toggle:active,
+  .theme-base-0a #sidebar-checkbox:checked ~ .sidebar-toggle {
+    background-color: #f4bf75;
+  }
+  .theme-base-0a .container a,
+  .theme-base-0a .sidebar-toggle,
+  .theme-base-0a .related-posts li a:hover {
+    color: #f4bf75;
+  }
+  
+  /* Green */
+  .theme-base-0b .sidebar,
+  .theme-base-0b .sidebar-toggle:active,
+  .theme-base-0b #sidebar-checkbox:checked ~ .sidebar-toggle {
+    background-color: #90a959;
+  }
+  .theme-base-0b .container a,
+  .theme-base-0b .sidebar-toggle,
+  .theme-base-0b .related-posts li a:hover {
+    color: #90a959;
+  }
+  
+  /* Cyan */
+  .theme-base-0c .sidebar,
+  .theme-base-0c .sidebar-toggle:active,
+  .theme-base-0c #sidebar-checkbox:checked ~ .sidebar-toggle {
+    background-color: #75b5aa;
+  }
+  .theme-base-0c .container a,
+  .theme-base-0c .sidebar-toggle,
+  .theme-base-0c .related-posts li a:hover {
+    color: #75b5aa;
+  }
+  
+  /* Blue */
+  .theme-base-0d .sidebar,
+  .theme-base-0d .sidebar-toggle:active,
+  .theme-base-0d #sidebar-checkbox:checked ~ .sidebar-toggle {
+    background-color: #6a9fb5;
+  }
+  .theme-base-0d .container a,
+  .theme-base-0d .sidebar-toggle,
+  .theme-base-0d .related-posts li a:hover {
+    color: #6a9fb5;
+  }
+  
+  /* Magenta :D*/
+  .theme-base-0e .sidebar,
+  .theme-base-0e .sidebar-toggle:active,
+  .theme-base-0e #sidebar-checkbox:checked ~ .sidebar-toggle {
+    background-color: #b46ecc;
+  }
+  
+  .theme-base-0e .sidebar-toggle,
+  .theme-base-0e .related-posts li a:hover {
+    color: #b46ecc;
+  }
+  
+  /* Brown */
+  .theme-base-0f .sidebar,
+  .theme-base-0f .sidebar-toggle:active,
+  .theme-base-0f #sidebar-checkbox:checked ~ .sidebar-toggle {
+    background-color: #8f5536;
+  }
+  .theme-base-0f .container a,
+  .theme-base-0f .sidebar-toggle,
+  .theme-base-0f .related-posts li a:hover {
+    color: #8f5536;
+  }
+  
